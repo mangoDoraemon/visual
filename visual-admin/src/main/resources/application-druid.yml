@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    primary:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Wjy@018080
+      url: jdbc:mysql://58.87.77.191:3306/manage_system
+      type: com.alibaba.druid.pool.DruidDataSource
+    local:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Wjy@018080
+      url: jdbc:mysql://58.87.77.191:3306/shibing
+      type: com.alibaba.druid.pool.DruidDataSource
+    prod:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/prod
+      type: com.alibaba.druid.pool.DruidDataSource
