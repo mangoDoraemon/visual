@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @author wangjingyuan
  */
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
-//@MapperScan("com.asiainfo.system.**.mapper")
 public class VisualAdminApplication {
 
     public static void main(String[] args)

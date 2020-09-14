@@ -1,8 +1,8 @@
 package com.asiainfo.system.service.impl;
 
 
-import com.asiainfo.common.annotation.DataSourceSign;
-import com.asiainfo.common.enums.ContextConst;
+import com.asiainfo.common.annotation.DataSource;
+import com.asiainfo.common.enums.DataSourceType;
 import com.asiainfo.system.domain.Phone;
 import com.asiainfo.system.domain.UserTable;
 import com.asiainfo.system.mapper.TestMapper;
@@ -19,13 +19,12 @@ public class TestServiceImpl implements TestService {
     @Resource
     TestMapper testMapper;
 
-    @Override
+    @DataSource(value = DataSourceType.SLAVE)
     public List<UserTable> getOne() {
         return testMapper.getOne();
     }
 
-    @DataSourceSign(ContextConst.DataSourceType.LOCAL)
-    @Override
+    @DataSource(value = DataSourceType.MASTER)
     public List<Phone> getPhone() {
         return testMapper.getPhone();
     }
