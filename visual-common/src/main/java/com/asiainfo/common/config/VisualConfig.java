@@ -21,6 +21,9 @@ public class VisualConfig
     /** 版权年份 */
     private String copyrightYear;
 
+    /** 获取地址开关 */
+    private static boolean addressEnabled;
+
     public String getName()
     {
         return name;
@@ -49,6 +52,16 @@ public class VisualConfig
     public void setCopyrightYear(String copyrightYear)
     {
         this.copyrightYear = copyrightYear;
+    }
+
+    public static boolean isAddressEnabled()
+    {
+        return addressEnabled;
+    }
+
+    public void setAddressEnabled(boolean addressEnabled)
+    {
+        VisualConfig.addressEnabled = addressEnabled;
     }
 
 

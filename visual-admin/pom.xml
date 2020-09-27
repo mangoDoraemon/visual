@@ -12,6 +12,7 @@
     <artifactId>visual-admin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>visual-admin</name>
+    <packaging>jar</packaging>
     <description>web 服务入口</description>
 
 
