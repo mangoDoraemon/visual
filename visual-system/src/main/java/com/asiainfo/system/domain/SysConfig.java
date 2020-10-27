@@ -27,7 +27,7 @@ public class SysConfig extends BaseEntity
     /** 参数键值 */
     private String configValue;
 
-    /** 系统内置（Y是 N否） */
+    /** 参数类型 */
     private String configType;
 
     public Long getConfigId()
@@ -94,5 +94,13 @@ public class SysConfig extends BaseEntity
             .append("updateTime", getUpdateTime())
             .append("remark", getRemark())
             .toString();
+    }
+
+    public SysConfig(Long configId, String configName, String configKey, String configValue, String configType) {
+        this.configId = configId;
+        this.configName = configName;
+        this.configKey = configKey;
+        this.configValue = configValue;
+        this.configType = configType;
     }
 }

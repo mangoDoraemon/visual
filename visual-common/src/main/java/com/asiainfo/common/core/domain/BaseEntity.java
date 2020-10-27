@@ -3,6 +3,7 @@ package com.asiainfo.common.core.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,34 +19,43 @@ public class BaseEntity implements Serializable
     private static final long serialVersionUID = 1L;
 
     /** 搜索值 */
+    @Transient
     private String searchValue;
 
     /** 创建者 */
+    @Transient
     private String createBy;
 
     /** 创建时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Transient
     private Date createTime;
 
     /** 更新者 */
+    @Transient
     private String updateBy;
 
     /** 更新时间 */
+    @Transient
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     /** 备注 */
+    @Transient
     private String remark;
 
     /** 开始时间 */
     @JsonIgnore
+    @Transient
     private String beginTime;
 
     /** 结束时间 */
     @JsonIgnore
+    @Transient
     private String endTime;
 
     /** 请求参数 */
+    @Transient
     private Map<String, Object> params;
 
     public String getSearchValue()

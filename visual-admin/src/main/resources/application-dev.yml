@@ -6,9 +6,9 @@ spring:
     druid:
       # 主库数据源
       master:
-        url: jdbc:mysql://58.87.77.191:3306/shibing?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        url: jdbc:mysql://20.26.103.133::3306/flow_dev?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
         username: root
-        password: Wjy@018080
+        password: Root@123
       # 从库数据源
       slave:
         # 从数据源开关/默认关闭
@@ -57,26 +57,4 @@ spring:
             multi-statement-allow: true
 
   #redis 配置
-  redis:
-    password: 123456
-    timeout: 6000ms
-    lettuce:
-      pool:
-        # 连接池中的最小空闲连接
-        min-idle: 0
-        # 连接池中的最大空闲连接
-        max-idle: 8
-        # 连接池的最大数据库连接数
-        max-active: 8
-        # #连接池最大阻塞等待时间（使用负值表示没有限制）
-        max-wait: -1ms
-      shutdown-timeout: 8000ms
-    cluster:
-      nodes:
-            - 58.87.77.191:7001
-            - 58.87.77.191:7002
-            - 58.87.77.191:7003
-            - 58.87.77.191:7004
-            - 58.87.77.191:7005
-            - 58.87.77.191:7006
 

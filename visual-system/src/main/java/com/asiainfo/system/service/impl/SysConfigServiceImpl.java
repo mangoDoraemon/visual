@@ -1,14 +1,11 @@
 package com.asiainfo.system.service.impl;
 
 
-import com.asiainfo.common.core.redis.RedisCache;
-import com.asiainfo.system.mapper.SysConfigMapper;
+import com.asiainfo.system.domain.SysConfig;
 import com.asiainfo.system.service.ISysConfigService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -27,5 +24,21 @@ public class SysConfigServiceImpl implements ISysConfigService
     public void init()
     {
 
+        System.out.println("hello");
+    }
+
+    @Override
+    public List<SysConfig> selectConfigList(SysConfig config) {
+        return null;
+    }
+
+    @Override
+    public SysConfig selectConfigById(Long configId) {
+        return null;
+    }
+
+    @Override
+    public String selectConfigByKey(String configKey) {
+        return null;
     }
 }
