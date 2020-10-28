@@ -17,7 +17,6 @@ public class SysUiData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
     private String reportId;
     private String reportName;
     private String userId;

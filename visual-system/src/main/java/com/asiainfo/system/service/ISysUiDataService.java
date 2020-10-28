@@ -39,4 +39,15 @@ public interface ISysUiDataService {
     List<SysUiTable> getUiTable(String id);
 
     SysUiOpction getUiOpction(String type);
+
+    List<SysUiDataTable> getUiDataTable(String id);
+
+    void saveUiDataTable(SysUiDataTable ut);
+
+    AjaxResult deleteUiDataTable(String id);
+
+    List<SysUiDataTable> getUserList(String userId, String type);
+
+
+
 }

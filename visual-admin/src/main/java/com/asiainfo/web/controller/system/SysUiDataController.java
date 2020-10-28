@@ -34,6 +34,10 @@ public class SysUiDataController extends BaseController {
 
     @RequestMapping("/save")
     public AjaxResult save(@RequestBody LinkedHashMap map, HttpServletRequest request, ModelMap model, SysUiData udd) {
+        if (null==map.get("reportId")){
+            return AjaxResult.error("reportId为空");
+        }
+
         String reportId = map.get("reportId").toString();
         System.out.println("reportId:" + reportId);
         String reportName = map.get("reportName").toString();
@@ -168,6 +172,63 @@ public class SysUiDataController extends BaseController {
         SysUiConfig uc = sysUiDataService.getUiconfig(type);
         return AjaxResult.success("查询成功", uc);
     }
+
+    @RequestMapping("/getOneData")
+    public AjaxResult getOneData(@RequestBody LinkedHashMap map) {
+        // String userId = map.get("userId").toString();
+        String id = map.get("id").toString();
+        // String type = request.getParameter("type");
+        // String id = request.getParameter("id");
+        JSONArray ja = new JSONArray();
+        List<SysUiDataTable> list = sysUiDataService.getUiDataTable(id);
+        for (SysUiDataTable ut : list) {
+            JSONObject js = new JSONObject();
+            js.put("dataResult", ut.getObj());
+            js.put("resultColumn", ut.getColumns());
+            js.put("dataName", ut.getDataname());
+            js.put("rowType", ut.getRowtype());
+            ja.add(js);
+        }
+        return AjaxResult.success("查询成功", ja);
+    }
+
+
+    @RequestMapping("/getUserList")
+    public AjaxResult getUserList(@RequestBody LinkedHashMap map) {
+        String userId = map.get("user_id").toString();
+        String type = map.get("type").toString();
+        // String type = request.getParameter("type");
+        // String userId = request.getParameter("userId");
+        JSONArray ja = new JSONArray();
+        List<SysUiDataTable> list = sysUiDataService.getUserList(userId, type);
+        for (SysUiDataTable ut : list) {
+            JSONObject jo = new JSONObject();
+            jo.put("id", ut.getId());
+            jo.put("user_id", ut.getUser_id());
+            jo.put("dataName", ut.getDataname());
+            jo.put("type", ut.getType());
+            jo.put("create_time", ut.getCreate_time_show());
+            jo.put("user_type", ut.getUser_type());
+            jo.put("typetwo", ut.getTypetwo());
+            jo.put("rowType", ut.getRowtype());
+            ja.add(jo);
+        }
+        return AjaxResult.success("查询成功", ja);
+    }
+
+
+    @RequestMapping("/deleteOneData")
+    public AjaxResult deleteOneData(@RequestBody LinkedHashMap map) {
+        String id = map.get("id").toString();
+        List<SysUiDataTable> list = sysUiDataService.getUiDataTable(id);
+        if (list.size() == 0) {
+            return AjaxResult.error("删除失败，该Id不存在");
+        }
+        AjaxResult ar = sysUiDataService.deleteUiDataTable(id);
+        return AjaxResult.success("查询成功", ar);
+    }
+
+
 
 
 }
